@@ -18,7 +18,7 @@ public:
 	struct Node* insert(struct Node* node, string key);
 	void inOrder(struct Node *root);
 
-	bool seasrch(struct Node* node, string key);
+	bool search(struct Node* node, string key);
 
 
 

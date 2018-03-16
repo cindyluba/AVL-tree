@@ -33,7 +33,7 @@ int main() {
 	AVL *avl = new AVL;
 	struct Node *root = NULL;
 	boost::timer t;
- 	double elapsedTimeBST, elapsedTimeHT;
+ 	double elapsedTimeAVL;
 
 
 	for(const auto& pathName : getPathNames("hotels")) {
@@ -69,22 +69,22 @@ int main() {
     	case 1:
       	{
 			string wordToSearch;
-			bool wordExistsBST;
+			bool wordExistsAVL;
 			cin >> wordToSearch;
 			t.restart();
-			wordExistsBST = bst->search(root, wordToSearch);
-			elapsedTimeBST = t.elapsed();
+			wordExistsAVL = avl->search(root, wordToSearch);
+			elapsedTimeAVL = t.elapsed();
 			// t.restart();
 			// wordExistsHT = hashTable->search(wordToSearch);
 			// elapsedTimeHT = t.elapsed();
-			if (wordExistsBST)
+			if (wordExistsAVL)
 				cout << "True" << endl;
 			else
 				cout << "False" << endl;
-			cout << fixed << "BST: " << elapsedTimeBST << endl;
+			cout << fixed << "AVL: " << elapsedTimeAVL << endl;
 			//cout << fixed << "Hash: " << elapsedTimeHT << endl;
 		    }
-     	break;
+     	
    		}
 	}
 	return 0;

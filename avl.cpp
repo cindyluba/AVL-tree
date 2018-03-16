@@ -159,7 +159,7 @@ void AVL::inOrder(struct Node *root)
     }
 }
 
-bool AVL::seasrch(struct Node* node, string key) {
+bool AVL::search(struct Node* node, string key) {
     if(node == NULL) {
         return false;
     } 
