@@ -97,7 +97,23 @@ int main() {
 			// elapsedTimeHT = t.elapsed();
 			cout << fixed << "AVL: " << elapsedTimeAVL << endl;
 			//cout << fixed << "Hash: " << elapsedTimeHT << endl;
+			avl->inOrder(root);
 		}
+		break;
+    	case 3:
+      	{
+			string wordToDelete;
+			cin >> wordToDelete;
+			t.restart();
+			root = avl->deleteNode(root, wordToDelete);
+			elapsedTimeAVL = t.elapsed();
+			// t.restart();
+			// hashTable->deleteWord(wordToDelete);
+			// elapsedTimeHT = t.elapsed();
+			cout << fixed << "AVL: " << elapsedTimeAVL << endl;
+			//cout << fixed << "Hash: " << elapsedTimeHT << endl;
+			avl->inOrder(root);
+    	}
    		}
 	}
 	return 0;

@@ -20,6 +20,9 @@ public:
 
 	bool search(struct Node* node, string key);
 
+	struct Node* minValueNode(struct Node* node);
+	struct Node* deleteNode(struct Node* root, string key);
+
 
 
 };
