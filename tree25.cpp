@@ -12,21 +12,21 @@ void Tree25::traverse(){
 	if (root != NULL) root->traverse(); 
 }
  
-BTreeNode* Tree25::search(int k) {
+Tree25Node* Tree25::search(string k) {
 	return (root == NULL)? NULL : root->search(k); 
 }
 
-void Tree25::insert(srting k)
+void Tree25::insert(string k)
 {
     if (root == NULL) {
-        root = new BTreeNode(t, true);
+        root = new Tree25Node(t, true);
         root->keys[0] = k;  // Insert key
         root->n = 1;  // Update number of keys in root
     } else {
         // If root is full, then tree grows in height
         if (root->n == 2*t-1) {
             // Allocate memory for new root
-            BTreeNode *s = new BTreeNode(t, false);
+            Tree25Node *s = new Tree25Node(t, false);
  
             // Make old root as child of new root
             s->C[0] = root;

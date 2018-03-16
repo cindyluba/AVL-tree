@@ -32,7 +32,7 @@ int main() {
 	int command;
 
 	AVL *avl = new AVL;
-	Tree25 tree25 = new Tree25(5);
+	Tree25 *tree25 = new Tree25(5);
 	struct Node *root = NULL;
 	boost::timer t;
  	double elapsedTimeAVL;
