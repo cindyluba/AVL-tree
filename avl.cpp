@@ -137,8 +137,7 @@ void AVL::inOrder(struct Node *root)
     if(root != NULL)
     {
         inOrder(root->left);
-        cout << root->key << endl;
-        cout << "  " << root->wordCount << endl;
+        cout << root->key << "  " << root->wordCount << endl;
         inOrder(root->right);
     }
 }
@@ -160,7 +159,6 @@ struct Node* AVL::minValueNode(struct Node* node)
 {
     struct Node* current = node;
  
-    /* loop down to find the leftmost leaf */
     while (current->left != NULL)
         current = current->left;
  
@@ -264,30 +262,4 @@ void AVL::rangeSearch(struct Node* root, string startKey, string endKey) {
         rangeSearch(root->right, startKey, endKey);
 }
 
- 
-/* Drier program to test above function*/
-// int main()
-// {
-//   struct Node *root = NULL;
- 
-//   /* Constructing tree given in the above figure */
-//   root = insert(root, 10);
-//   root = insert(root, 20);
-//   root = insert(root, 30);
-//   root = insert(root, 40);
-//   root = insert(root, 50);
-//   root = insert(root, 25);
- 
-//   /* The constructed AVL Tree would be
-//             30
-//            /  \
-//          20   40
-//         /  \     \
-//        10  25    50
-//   */
- 
-//   cout << "Preorder traversal of the constructed AVL tree is" << endl;;
-//   preOrder(root);
- 
-//   return 0;
-// }
+
