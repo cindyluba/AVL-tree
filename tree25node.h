@@ -19,7 +19,7 @@ public:
     void traverse(); 
     Tree25Node *search(string k);  
     void insertNonFull(string k);
-    void splitChild(int i, BTreeNode *y);
+    void splitChild(int i, Tree25Node *y);
 
 
 friend class Tree25;

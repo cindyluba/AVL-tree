@@ -15,3 +15,5 @@ public:
     void insert(string k);
 
 };
+
+#endif

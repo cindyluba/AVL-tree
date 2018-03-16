@@ -97,7 +97,7 @@ void Tree25Node::insertNonFull(string k)
     }
 }
 
-void Tree25Node::splitChild(int i, BTreeNode *y)
+void Tree25Node::splitChild(int i, Tree25Node *y)
 {
     // Create a new node which is going to store (t-1) keys
     // of y
