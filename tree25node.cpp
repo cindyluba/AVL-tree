@@ -28,7 +28,7 @@ void Tree25Node::traverse()
         // traverse the subtree rooted with child C[i].
         if (leaf == false)
             C[i]->traverse();
-        cout << " " << keys[i];
+        cout  << keys[i] << endl;
     }
  
     // Print the subtree rooted with last child

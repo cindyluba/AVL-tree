@@ -67,7 +67,7 @@ int main() {
 	for(string word: wordList) {
 		tree25->insert(word);
 	}
-	tree25.traverse();
+	tree25->traverse();
 	//avl->inOrder(root);
 
 	while (true) {
