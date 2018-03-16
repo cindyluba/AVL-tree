@@ -33,7 +33,7 @@ int max(int a, int b)
  
 /* Helper function that allocates a new node with the given key and
     NULL left and right pointers. */
-struct Node* newNode(int key)
+struct Node* newNode(string key)
 {
     struct Node* node = new Node;
                         //malloc(sizeof(struct Node));
@@ -92,7 +92,7 @@ int getBalance(struct Node *N)
  
 // Recursive function to insert key in subtree rooted
 // with node and returns new root of subtree.
-struct Node* insert(struct Node* node, int key)
+struct Node* insert(struct Node* node, string key)
 {
     /* 1.  Perform the normal BST insertion */
     if (node == NULL)
