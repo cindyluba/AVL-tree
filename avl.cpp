@@ -8,7 +8,7 @@ using namespace std;
 // An AVL tree node
 struct Node
 {
-    int key;
+    string key;
     struct Node *left;
     struct Node *right;
     int height;
