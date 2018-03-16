@@ -4,27 +4,12 @@ CXXFLAGS= -std=c++1z -Wall -g
 
 all: main
 
-main: main.o AVL.o 
-	g++ -o main main.o AVL.o 	
+main: main.o avl.o 
+	g++ -o main main.o avl.o 	
 
 main.o: main.cpp
 
-AVL.o: AVL.cpp
+avl.o: avl.cpp
 
 clean:
 	rm -rf *.o main output.txt
-
-
-
-	jun
-excellent
-near
-airport
-stayed
-hotel
-times
-recently
-th
-may
-find
-luxurious
