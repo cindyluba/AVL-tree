@@ -6,6 +6,7 @@
 #include <string>
 #include <boost/timer.hpp>
 #include "avl.h"
+#include "tree25.h"
 
 
 using namespace std;
@@ -31,6 +32,7 @@ int main() {
 	int command;
 
 	AVL *avl = new AVL;
+	Tree25 tree25 = new Tree25(5);
 	struct Node *root = NULL;
 	boost::timer t;
  	double elapsedTimeAVL;

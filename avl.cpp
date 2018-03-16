@@ -4,7 +4,6 @@
 #include <stddef.h>
 #include <fstream>
 
-
 using namespace std;
 
 AVL::AVL() {
