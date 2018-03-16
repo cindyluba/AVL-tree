@@ -118,7 +118,7 @@ int main() {
     	case 4:
      	{
 			t.restart();
-			avl->sort();
+			avl->sort(root);
 			elapsedTimeAVL = t.elapsed();
 			// t.restart();
 			// hashTable->sort();
@@ -133,7 +133,7 @@ int main() {
 			string startWord, endWord;
 			cin >> startWord >> endWord;
 			t.restart();
-			avl->rangeSearch(startWord, endWord);
+			avl->rangeSearch(root, startWord, endWord);
 			elapsedTimeAVL = t.elapsed();
 			cout << endl;
 			// t.restart();

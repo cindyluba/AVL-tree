@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <stddef.h>
+#include <fstream>
+
 
 using namespace std;
 
@@ -228,7 +230,7 @@ struct Node* AVL::deleteNode(struct Node* root, string key)
     return root;
 }
 
-void AVL::sort() {
+void AVL::sort(struct Node* root) {
     ofstream outFile;
     outFile.open("output.txt");
     sort(root, outFile);
@@ -237,11 +239,11 @@ void AVL::sort() {
 }
 
 void AVL::sort(struct Node* root, ofstream& outFile) {
-    if (node == NULL)
+    if (root == NULL)
         return;
-    sort(node->left, outFile);
-    outFile << node->word << endl;
-    sort(node->right, outFile);
+    sort(root->left, outFile);
+    outFile << root->key << endl;
+    sort(root->right, outFile);
 }
 
 void AVL::rangeSearch(struct Node* root, string startKey, string endKey) {

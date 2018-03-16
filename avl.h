@@ -23,7 +23,7 @@ public:
 	struct Node* minValueNode(struct Node* node);
 	struct Node* deleteNode(struct Node* root, string key);
 
-	void sort();
+	void sort(struct Node* root);
 	void sort(struct Node* root, ofstream& outFile);
 
 	void rangeSearch(struct Node* root, string startKey, string endKey);
