@@ -3,7 +3,10 @@
 #include <string>
 #include "tree25node.h"
 
-// A BTree
+using namespace std;
+
+class Tree25Node;
+
 class Tree25
 {
     Tree25Node *root; // Pointer to root node
