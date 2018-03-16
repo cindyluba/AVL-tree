@@ -18,6 +18,7 @@ struct Node
     struct Node *left;
     struct Node *right;
     int height;
+    int wordCount;
 };
  
 int AVL::height(struct Node *N)
@@ -40,6 +41,7 @@ struct Node* AVL::newNode(string key)
     node->left   = NULL;
     node->right  = NULL;
     node->height = 1;  // new node is initially added at leaf
+    node->wordCount = 1;
     return(node);
 }
  
@@ -86,7 +88,8 @@ struct Node* AVL::insert(struct Node* node, string key)
         node->left  = insert(node->left, key);
     else if (key > node->key)
         node->right = insert(node->right, key);
-    else // Equal keys are not allowed in BST
+    else
+        node->wordCount = node->wordCount + 1;
         return node;
  
     /* 2. Update height of this ancestor node */
@@ -133,6 +136,7 @@ void AVL::inOrder(struct Node *root)
     {
         inOrder(root->left);
         cout << root->key << endl;
+        cout << "  " << root->wordCount << endl;
         inOrder(root->right);
     }
 }
