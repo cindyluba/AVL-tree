@@ -61,9 +61,13 @@ int main() {
 
 	for(string word: wordList) {
 		root = avl->insert(root, word);
-		cout << word << endl;
+	}
+	cout << "Done with inserting to AVL" << endl << endl;
+	
+	for(string word: wordList) {
 		tree25->insert(word);
 	}
+	tree25.traverse();
 	//avl->inOrder(root);
 
 	while (true) {
