@@ -4,7 +4,7 @@
 #include <vector>
 #include <set>
 #include <string>
-#include "AVL.h"
+#include "avl.h"
 
 
 using namespace std;
@@ -28,7 +28,7 @@ int main() {
 	ifstream file;
 	AVL *avl = new AVL;
 	string word;
-	AvlNode* root = NULL;
+	struct Node *root = NULL;
 
 
 	for(const auto& pathName : getPathNames("hotels")) {
