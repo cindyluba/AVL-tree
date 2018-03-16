@@ -2,7 +2,6 @@
 #define tree25_h
 #include <string>
 #include "tree25node.h"
-
 using namespace std;
 
 class Tree25Node;

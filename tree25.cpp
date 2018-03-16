@@ -1,4 +1,6 @@
 #include "tree25.h"
+#include "tree25node.h"
+
 #include <string>
 
 using namespace std;
