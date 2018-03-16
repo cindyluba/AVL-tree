@@ -1,4 +1,6 @@
 #include "tree25node.h"
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -9,8 +11,8 @@ Tree25Node::Tree25Node(int _t, bool _leaf)
  
     // Allocate memory for maximum number of possible keys
     // and child pointers
-    keys = new int[2*t-1];
-    C = new BTreeNode *[2*t]; 
+    keys = new string[2*t-1];
+    C = new Tree25Node *[2*t]; 
     n = 0;
 }
  
@@ -101,7 +103,7 @@ void Tree25Node::splitChild(int i, Tree25Node *y)
 {
     // Create a new node which is going to store (t-1) keys
     // of y
-    BTreeNode *z = new BTreeNode(y->t, y->leaf);
+    Tree25Node *z = new Tree25Node(y->t, y->leaf);
     z->n = t - 1;
  
     // Copy the last (t-1) keys of y to z
