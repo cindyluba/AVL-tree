@@ -90,13 +90,13 @@ struct Node* AVL::insert(struct Node* node, string key)
         node->left  = insert(node->left, key);
     else if (key > node->key)
         node->right = insert(node->right, key);
-    else
+    else {
         node->wordCount = node->wordCount + 1;
         return node;
- 
+    }
+
     /* 2. Update height of this ancestor node */
-    node->height = 1 + max(height(node->left),
-                           height(node->right));
+    node->height = 1 + max(height(node->left), height(node->right));
  
     /* 3. Get the balance factor of this ancestor
           node to check whether this node became
@@ -179,6 +179,10 @@ struct Node* AVL::deleteNode(struct Node* root, string key)
         root->right = deleteNode(root->right, key);
     else
     {
+        if(root->wordCount > 1) {
+            root->wordCount = root->wordCount - 1;
+            return root;
+        }
         if( (root->left == NULL) || (root->right == NULL) )
         {
             struct Node *temp = root->left ? root->left : root->right;
