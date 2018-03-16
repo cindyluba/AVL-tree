@@ -5,6 +5,12 @@
 
 using namespace std;
 
+AVL::AVL() {
+}
+
+AVL::~AVL() {
+}
+
 // An AVL tree node
 struct Node
 {
@@ -14,11 +20,8 @@ struct Node
     int height;
 };
  
-// A utility function to get maximum of two integers
-int max(int a, int b);
- 
 // A utility function to get height of the tree
-int height(struct Node *N)
+int AVL::height(struct Node *N)
 {
     if (N == NULL)
         return 0;
@@ -26,14 +29,14 @@ int height(struct Node *N)
 }
  
 // A utility function to get maximum of two integers
-int max(int a, int b)
+int AVL::max(int a, int b)
 {
     return (a > b)? a : b;
 }
  
 /* Helper function that allocates a new node with the given key and
     NULL left and right pointers. */
-struct Node* newNode(string key)
+struct Node* AVL::newNode(string key)
 {
     struct Node* node = new Node;
                         //malloc(sizeof(struct Node));
@@ -46,7 +49,7 @@ struct Node* newNode(string key)
  
 // A utility function to right rotate subtree rooted with y
 // See the diagram given above.
-struct Node *rightRotate(struct Node *y)
+struct Node* AVL::rightRotate(struct Node *y)
 {
     struct Node *x = y->left;
     struct Node *T2 = x->right;
@@ -65,7 +68,7 @@ struct Node *rightRotate(struct Node *y)
  
 // A utility function to left rotate subtree rooted with x
 // See the diagram given above.
-struct Node *leftRotate(struct Node *x)
+struct Node* AVL::leftRotate(struct Node *x)
 {
     struct Node *y = x->right;
     struct Node *T2 = y->left;
@@ -83,7 +86,7 @@ struct Node *leftRotate(struct Node *x)
 }
  
 // Get Balance factor of node N
-int getBalance(struct Node *N)
+int AVL::getBalance(struct Node *N)
 {
     if (N == NULL)
         return 0;
@@ -92,7 +95,7 @@ int getBalance(struct Node *N)
  
 // Recursive function to insert key in subtree rooted
 // with node and returns new root of subtree.
-struct Node* insert(struct Node* node, string key)
+struct Node* AVL::insert(struct Node* node, string key)
 {
     /* 1.  Perform the normal BST insertion */
     if (node == NULL)
@@ -146,13 +149,13 @@ struct Node* insert(struct Node* node, string key)
 // A utility function to print preorder traversal
 // of the tree.
 // The function also prints height of every node
-void inOrder(struct Node *root)
+void AVL::inOrder(struct Node *root)
 {
     if(root != NULL)
     {
-        preOrder(root->left);
+        inOrder(root->left);
         cout << root->key << endl;
-        preOrder(root->right);
+        inOrder(root->right);
     }
 }
  

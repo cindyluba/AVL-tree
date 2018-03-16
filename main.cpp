@@ -55,6 +55,6 @@ int main() {
 	for(string word: wordList) {
 		root = avl->insert(root, word);
 	}
-	avl->printInorder(root);
+	avl->inOrder(root);
 
 }
