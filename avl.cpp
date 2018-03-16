@@ -158,6 +158,19 @@ void AVL::inOrder(struct Node *root)
         inOrder(root->right);
     }
 }
+
+bool AVL::seasrch(struct Node* node, string key) {
+    if(node == NULL) {
+        return false;
+    } 
+    if(key.compare(node->key) > 0) {
+        return search(node->right, key);
+    } else if(key.compare(node->key) < 0) {
+        return search(node->left, key);
+    } else {
+        return true;
+    }
+}
  
 /* Drier program to test above function*/
 // int main()

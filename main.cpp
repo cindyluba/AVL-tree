@@ -4,6 +4,7 @@
 #include <vector>
 #include <set>
 #include <string>
+#include <boost/timer.hpp>
 #include "avl.h"
 
 
@@ -26,9 +27,13 @@ int main() {
 
 	vector<string> wordList;
 	ifstream file;
-	AVL *avl = new AVL;
 	string word;
+	int command;
+
+	AVL *avl = new AVL;
 	struct Node *root = NULL;
+	boost::timer t;
+ 	double elapsedTimeBST, elapsedTimeHT;
 
 
 	for(const auto& pathName : getPathNames("hotels")) {
@@ -56,5 +61,32 @@ int main() {
 		root = avl->insert(root, word);
 	}
 	avl->inOrder(root);
+
+	while (true) {
+    	cin >> command;
+
+    	switch(command) {
+    	case 1:
+      	{
+			string wordToSearch;
+			bool wordExistsBST;
+			cin >> wordToSearch;
+			t.restart();
+			wordExistsBST = bst->search(root, wordToSearch);
+			elapsedTimeBST = t.elapsed();
+			// t.restart();
+			// wordExistsHT = hashTable->search(wordToSearch);
+			// elapsedTimeHT = t.elapsed();
+			if (wordExistsBST)
+				cout << "True" << endl;
+			else
+				cout << "False" << endl;
+			cout << fixed << "BST: " << elapsedTimeBST << endl;
+			//cout << fixed << "Hash: " << elapsedTimeHT << endl;
+		    }
+     	break;
+   		}
+	}
+	return 0;
 
 }
