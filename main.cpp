@@ -114,6 +114,34 @@ int main() {
 			//cout << fixed << "Hash: " << elapsedTimeHT << endl;
 			avl->inOrder(root);
     	}
+    	break;
+    	case 4:
+     	{
+			t.restart();
+			avl->sort();
+			elapsedTimeAVL = t.elapsed();
+			// t.restart();
+			// hashTable->sort();
+			// elapsedTimeHT = t.elapsed();
+			cout << "/output.txt" << endl;
+			cout << fixed << "AVL: " << elapsedTimeAVL << endl;
+			//cout << fixed << "Hash: " << elapsedTimeHT << endl;
+		}
+		break;
+    	case 5:
+      	{
+			string startWord, endWord;
+			cin >> startWord >> endWord;
+			t.restart();
+			avl->rangeSearch(startWord, endWord);
+			elapsedTimeAVL = t.elapsed();
+			cout << endl;
+			// t.restart();
+			// hashTable->rangeSearch(startWord, endWord);
+			// elapsedTimeHT = t.elapsed();
+			cout << fixed << "AVL: " << elapsedTimeAVL << endl;
+			//cout << fixed << "Hash: " << elapsedTimeHT << endl;
+      	}
    		}
 	}
 	return 0;

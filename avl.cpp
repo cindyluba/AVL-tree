@@ -175,48 +175,34 @@ struct Node* AVL::deleteNode(struct Node* root, string key)
     {
         if( (root->left == NULL) || (root->right == NULL) )
         {
-            struct Node *temp = root->left ? root->left :
-                                             root->right;
- 
-            // No child case
+            struct Node *temp = root->left ? root->left : root->right;
             if (temp == NULL)
             {
                 temp = root;
                 root = NULL;
             }
-            else // One child case
-             *root = *temp; // Copy the contents of
-                            // the non-empty child
+            else 
+                *root = *temp; 
             free(temp);
         }
         else
         {
-            // node with two children: Get the inorder
-            // successor (smallest in the right subtree)
             struct Node* temp = minValueNode(root->right);
- 
-            // Copy the inorder successor's data to this node
             root->key = temp->key;
- 
-            // Delete the inorder successor
             root->right = deleteNode(root->right, temp->key);
         }
     }
  
     // If the tree had only one node then return
-    if (root == NULL)
-      return root;
+    if (root == NULL)  return root;
  
     // STEP 2: UPDATE HEIGHT OF THE CURRENT NODE
-    root->height = 1 + max(height(root->left),
-                           height(root->right));
+    root->height = 1 + max(height(root->left), height(root->right));
  
     // STEP 3: GET THE BALANCE FACTOR OF THIS NODE (to
     // check whether this node became unbalanced)
     int balance = getBalance(root);
- 
-    // If this node becomes unbalanced, then there are 4 cases
- 
+  
     // Left Left Case
     if (balance > 1 && getBalance(root->left) >= 0)
         return rightRotate(root);
@@ -241,6 +227,33 @@ struct Node* AVL::deleteNode(struct Node* root, string key)
  
     return root;
 }
+
+void AVL::sort() {
+    ofstream outFile;
+    outFile.open("output.txt");
+    sort(root, outFile);
+    outFile << endl;
+    outFile.close();
+}
+
+void AVL::sort(struct Node* root, ofstream& outFile) {
+    if (node == NULL)
+        return;
+    sort(node->left, outFile);
+    outFile << node->word << endl;
+    sort(node->right, outFile);
+}
+
+void AVL::rangeSearch(struct Node* root, string startKey, string endKey) {
+    if(root == NULL) return;
+    if(startKey < root->key)
+        rangeSearch(root->left, startKey, endKey);
+    if(startKey <= root->key && endKey >= root->key)
+        cout << root->key << endl;
+    if(endKey > root->key)
+        rangeSearch(root->right, startKey, endKey);
+}
+
  
 /* Drier program to test above function*/
 // int main()
