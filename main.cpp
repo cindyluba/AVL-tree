@@ -84,7 +84,20 @@ int main() {
 			cout << fixed << "AVL: " << elapsedTimeAVL << endl;
 			//cout << fixed << "Hash: " << elapsedTimeHT << endl;
 		    }
-     	
+     		break;
+    	case 2:
+      	{
+			string wordToInsert;
+			cin >> wordToInsert;
+			t.restart();
+			avl->insert(root, wordToInsert);
+			elapsedTimeAVL = t.elapsed();
+			// t.restart();
+			// hashTable->insert(wordToInsert);
+			// elapsedTimeHT = t.elapsed();
+			cout << fixed << "AVL: " << elapsedTimeAVL << endl;
+			//cout << fixed << "Hash: " << elapsedTimeHT << endl;
+		}
    		}
 	}
 	return 0;
