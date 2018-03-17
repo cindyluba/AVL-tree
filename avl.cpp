@@ -46,7 +46,7 @@ struct AVLNode* AVL::newNode(string key)
     return(node);
 }
  
-struct AVLNode* AVL::rightRotate(struct Node *y)
+struct AVLNode* AVL::rightRotate(struct AVLNode *y)
 {
     struct AVLNode *x = y->left;
     struct AVLNode *T2 = x->right;
@@ -59,7 +59,7 @@ struct AVLNode* AVL::rightRotate(struct Node *y)
     return x;
 }
  
-struct Node* AVL::leftRotate(struct Node *x)
+struct AVLNode* AVL::leftRotate(struct AVLNode *x)
 {
     struct Node *y = x->right;
     struct Node *T2 = y->left;
@@ -72,7 +72,7 @@ struct Node* AVL::leftRotate(struct Node *x)
     return y;
 }
  
-int AVL::getBalance(struct Node *N)
+int AVL::getBalance(struct AVLNode *N)
 {
     if (N == NULL)
         return 0;
@@ -154,7 +154,7 @@ bool AVL::search(struct AVLNode* node, string key) {
     }
 }
 
-struct Node* AVL::minValueNode(struct AVLNode* node)
+struct AVLNode* AVL::minValueNode(struct AVLNode* node)
 {
     struct AVLNode* current = node;
  
@@ -164,7 +164,7 @@ struct Node* AVL::minValueNode(struct AVLNode* node)
     return current;
 }
  
-struct Node* AVL::deleteNode(struct AVLNode* root, string key)
+struct AVLNode* AVL::deleteNode(struct AVLNode* root, string key)
 {
     // STEP 1: PERFORM STANDARD BST DELETE
     if (root == NULL)
@@ -235,7 +235,7 @@ struct Node* AVL::deleteNode(struct AVLNode* root, string key)
     return root;
 }
 
-void AVL::sort(struct Node* root) {
+void AVL::sort(struct AVLNode* root) {
     ofstream outFile;
     outFile.open("output.txt");
     sort(root, outFile);
@@ -243,7 +243,7 @@ void AVL::sort(struct Node* root) {
     outFile.close();
 }
 
-void AVL::sort(struct Node* root, ofstream& outFile) {
+void AVL::sort(struct AVLNode* root, ofstream& outFile) {
     if (root == NULL)
         return;
     sort(root->left, outFile);
@@ -251,7 +251,7 @@ void AVL::sort(struct Node* root, ofstream& outFile) {
     sort(root->right, outFile);
 }
 
-void AVL::rangeSearch(struct Node* root, string startKey, string endKey) {
+void AVL::rangeSearch(struct AVLNode* root, string startKey, string endKey) {
     if(root == NULL) return;
     if(startKey < root->key)
         rangeSearch(root->left, startKey, endKey);
