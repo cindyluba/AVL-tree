@@ -14,7 +14,7 @@ public:
 	int height(struct AVLNode *N);
 	struct AVLNode *rightRotate(struct AVLNode *y);
 	struct AVLNode *leftRotate(struct AVLNode *x);
-	int getBalance(struct Node *N);
+	int getBalance(struct AVLNode *N);
 	struct AVLNode* insert(struct AVLNode* node, string key);
 	void inOrder(struct AVLNode *root);
 

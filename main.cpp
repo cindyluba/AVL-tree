@@ -6,7 +6,6 @@
 #include <string>
 #include <boost/timer.hpp>
 #include "avl.h"
-#include "tree25.h"
 
 
 using namespace std;

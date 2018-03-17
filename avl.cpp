@@ -61,8 +61,8 @@ struct AVLNode* AVL::rightRotate(struct AVLNode *y)
  
 struct AVLNode* AVL::leftRotate(struct AVLNode *x)
 {
-    struct Node *y = x->right;
-    struct Node *T2 = y->left;
+    struct AVLNode *y = x->right;
+    struct AVLNode *T2 = y->left;
     y->left = x;
     x->right = T2;
  
