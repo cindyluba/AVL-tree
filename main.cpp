@@ -32,8 +32,8 @@ int main() {
 	int command;
 
 	AVL *avl = new AVL;
-	Tree25 *tree25 = new Tree25(5);
-	struct Node *root = NULL;
+	//Tree25 *tree25 = new Tree25;
+	struct AVLNode *root = NULL;
 	boost::timer t;
  	double elapsedTimeAVL;
 
@@ -64,11 +64,10 @@ int main() {
 	}
 	cout << "Done with inserting to AVL" << endl << endl;
 	
-	for(string word: wordList) {
-		tree25->insert(word);
-	}
-	tree25->traverse();
-	//avl->inOrder(root);
+	// for(string word: wordList) {
+	// 	tree25->insert(word);
+	// }
+	// tree25->traverse();
 
 	while (true) {
     	cin >> command;

@@ -9,24 +9,24 @@ class AVL {
 public:
 	AVL();
 	~AVL();
-	struct Node* newNode(string key);
+	struct AVLNode* newNode(string key);
 	int max(int a, int b);
-	int height(struct Node *N);
-	struct Node *rightRotate(struct Node *y);
-	struct Node *leftRotate(struct Node *x);
+	int height(struct AVLNode *N);
+	struct AVLNode *rightRotate(struct AVLNode *y);
+	struct AVLNode *leftRotate(struct AVLNode *x);
 	int getBalance(struct Node *N);
-	struct Node* insert(struct Node* node, string key);
-	void inOrder(struct Node *root);
+	struct AVLNode* insert(struct AVLNode* node, string key);
+	void inOrder(struct AVLNode *root);
 
-	bool search(struct Node* node, string key);
+	bool search(struct AVLNode* node, string key);
 
-	struct Node* minValueNode(struct Node* node);
-	struct Node* deleteNode(struct Node* root, string key);
+	struct AVLNode* minValueNode(struct AVLNode* node);
+	struct AVLNode* deleteNode(struct AVLNode* root, string key);
 
-	void sort(struct Node* root);
-	void sort(struct Node* root, ofstream& outFile);
+	void sort(struct AVLNode* root);
+	void sort(struct AVLNode* root, ofstream& outFile);
 
-	void rangeSearch(struct Node* root, string startKey, string endKey);
+	void rangeSearch(struct AVLNode* root, string startKey, string endKey);
 
 };
 

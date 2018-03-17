@@ -13,16 +13,16 @@ AVL::~AVL() {
 }
 
 // An AVL tree node
-struct Node
+struct AVLNode
 {
     string key;
-    struct Node *left;
-    struct Node *right;
+    struct AVLNode *left;
+    struct AVLNode *right;
     int height;
     int wordCount;
 };
  
-int AVL::height(struct Node *N)
+int AVL::height(struct AVLNode *N)
 {
     if (N == NULL)
         return 0;
@@ -34,9 +34,9 @@ int AVL::max(int a, int b)
     return (a > b)? a : b;
 }
  
-struct Node* AVL::newNode(string key)
+struct AVLNode* AVL::newNode(string key)
 {
-    struct Node* node = new Node;
+    struct AVLNode* node = new AVLNode;
 
     node->key   = key;
     node->left   = NULL;
@@ -46,10 +46,10 @@ struct Node* AVL::newNode(string key)
     return(node);
 }
  
-struct Node* AVL::rightRotate(struct Node *y)
+struct AVLNode* AVL::rightRotate(struct Node *y)
 {
-    struct Node *x = y->left;
-    struct Node *T2 = x->right;
+    struct AVLNode *x = y->left;
+    struct AVLNode *T2 = x->right;
     x->right = y;
     y->left = T2;
  
@@ -79,7 +79,7 @@ int AVL::getBalance(struct Node *N)
     return height(N->left) - height(N->right);
 }
  
-struct Node* AVL::insert(struct Node* node, string key)
+struct AVLNode* AVL::insert(struct AVLNode* node, string key)
 {
     /* 1.  Perform the normal BST insertion */
     if (node == NULL)
@@ -131,7 +131,7 @@ struct Node* AVL::insert(struct Node* node, string key)
     return node;
 }
  
-void AVL::inOrder(struct Node *root)
+void AVL::inOrder(struct AVLNode *root)
 {
     if(root != NULL)
     {
@@ -141,7 +141,7 @@ void AVL::inOrder(struct Node *root)
     }
 }
 
-bool AVL::search(struct Node* node, string key) {
+bool AVL::search(struct AVLNode* node, string key) {
     if(node == NULL) {
         return false;
     } 
@@ -154,9 +154,9 @@ bool AVL::search(struct Node* node, string key) {
     }
 }
 
-struct Node* AVL::minValueNode(struct Node* node)
+struct Node* AVL::minValueNode(struct AVLNode* node)
 {
-    struct Node* current = node;
+    struct AVLNode* current = node;
  
     while (current->left != NULL)
         current = current->left;
@@ -164,7 +164,7 @@ struct Node* AVL::minValueNode(struct Node* node)
     return current;
 }
  
-struct Node* AVL::deleteNode(struct Node* root, string key)
+struct Node* AVL::deleteNode(struct AVLNode* root, string key)
 {
     // STEP 1: PERFORM STANDARD BST DELETE
     if (root == NULL)
@@ -182,7 +182,7 @@ struct Node* AVL::deleteNode(struct Node* root, string key)
         }
         if( (root->left == NULL) || (root->right == NULL) )
         {
-            struct Node *temp = root->left ? root->left : root->right;
+            struct AVLNode *temp = root->left ? root->left : root->right;
             if (temp == NULL)
             {
                 temp = root;
@@ -194,7 +194,7 @@ struct Node* AVL::deleteNode(struct Node* root, string key)
         }
         else
         {
-            struct Node* temp = minValueNode(root->right);
+            struct AVLNode* temp = minValueNode(root->right);
             root->key = temp->key;
             root->right = deleteNode(root->right, temp->key);
         }
